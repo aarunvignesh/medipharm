@@ -32,6 +32,7 @@
         }
 
         if(check){
+            $('.enquiry-form-btn').hide();
             var payload = {};
 			$(".enquiry-form.validate-form").serializeArray().forEach(function(val){
 				payload[val.name] = val.value;
