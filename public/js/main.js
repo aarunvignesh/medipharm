@@ -4,11 +4,11 @@
 
     var name = $('.validate-input input[name="name"]');
     var email = $('.validate-input input[name="email"]');
-    var company = $('.validate-input input[name="company"]');
-    var contact = $('.validate-input input[name="contact"]');
+    var company = $('.validate-input input[name="companyName"]');
+    var contact = $('.validate-input input[name="contactNumber"]');
 
 
-    $('.validate-form').on('submit',function(){
+    $('.enquiry-form-btn').on('click',function(){
         var check = true;
 
         if($(name).val().trim() == ''){
@@ -31,6 +31,23 @@
             check=false;
         }
 
+        if(check){
+            var payload = {};
+			$(".enquiry-form.validate-form").serializeArray().forEach(function(val){
+				payload[val.name] = val.value;
+			});
+			$.ajax({
+				url:"./enquiry",
+				method: "post",
+				data: payload
+			}).done(function(){
+				$(".notify-msg").show();
+				setTimeout(function(){
+					$(".notify-msg").hide();
+					window.location.href = "/";
+				},5000);
+			});
+        }
         return check;
     });
 

@@ -9,8 +9,11 @@
   "author": "Arun Vignesh A",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.244.1",
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "mongoose": "^5.1.2",
     "path": "^0.12.7"
   }
 }
