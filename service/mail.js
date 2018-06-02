@@ -50,7 +50,7 @@ module.exports = {
             html: emailTemplate,
             attachments: [
               {
-                    filename: enquiry,
+                    filename: "enquiry",
                     cid: "enquiryImage",
                     content: payload.file,
                     encoding: "base64"
