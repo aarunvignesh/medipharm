@@ -16,6 +16,9 @@ enquirySchema = mongoose.Schema({
     message:{
         type: String
     },
+    file:{
+        type: String
+    },
     postedTime:{
         type: Date, default: Date.now
     }

@@ -4,8 +4,20 @@ var express = require("express"),
     enquiryModel = require("./model/enquiry"),
     body = require("body-parser"),
     config = require("./settings"),
+    mailer = require("./service/mail"),
     path = require("path");
 
+    var multer = require('multer');
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './public/uploads/')
+          },
+          filename: function (req, file, cb) {
+            cb(null, file.fieldname + '-' + Date.now())
+          }
+    });
+    var upload = multer({storage: storage});
+    
 var AWS = require('aws-sdk');
 // Set the region 
 AWS.config.update({region: 'us-east-1', accessKeyId: "AKIAIGFQASD7ZXUIIOHQ", secretAccessKey:"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"});
@@ -39,43 +51,34 @@ app.get("/enquiry",(req, res) => {
     res.render("enquiry");
 });
 
-app.post("/enquiry",(req, res) => {
-    let data = new enquiryModel(req.body);
-    data.save((err,value)=>{
-        console.log(err);
-        console.log(value);
-        // Create the promise and SES service object
-        var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail({
-            Destination: { /* required */
-                CcAddresses: config.email.ccList,
-                ToAddresses: config.email.toList
-              },
-              Message: { /* required */
-                Body: { /* required */
-                  Text: {
-                   Charset: "UTF-8",
-                   Data: "Hi Team, \n\nA new enquiry received \n\n"+Object.keys(req.body).map((val)=> val + " : " + req.body[val]).join(" \n\n")+"\n\n Thanks and Regards, \n GSPT Team"
-                  }
-                 },
-                 Subject: {
-                  Charset: 'UTF-8',
-                  Data: 'Enquiry Email'
-                 }
-                },
-              Source: 'pingme.team@gmail.com'
-        }).promise();
+app.use(multer().single('file'));
 
-        // Handle promise's fulfilled/rejected states
-        sendPromise.then(
-        function(data) {
-            console.log(data.MessageId);
-            res.json({code:200, msg:"Saved successfully..."});
-        }).catch(
-            function(err) {
-            console.error(err, err.stack);
-            res.json({code:200, msg:"Saved successfully..."});
+app.post("/enquiry",(req, res) => {
+    let payload = req.body;
+    if(req.file){
+        payload.file = `${new Buffer(req.file.buffer).toString("base64")}`
+    }
+    else{
+        payload.file = "";
+    }
+    let data = new enquiryModel(payload);
+
+    data.save((err,value)=>{
+        mailer.formatEnquiryMail(value).compile().build((err, mail)=>{
+            var sendPromise = new AWS.SES({apiVersion: '2010-12-01'})
+            .sendRawEmail({RawMessage: {Data: mail}})
+            .promise();
+
+              sendPromise.then(
+                function(data) {
+                    res.json({code:200, msg:"Saved successfully..."});
+                }).catch(
+                    function(err) {
+                    console.error(err, err.stack);
+                    res.json({code:200, msg:"Saved successfully..."});
+                });
         });
-        
+     
     });
 });
 

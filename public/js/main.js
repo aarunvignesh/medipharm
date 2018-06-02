@@ -8,7 +8,8 @@
     var contact = $('.validate-input input[name="contactNumber"]');
 
 
-    $('.enquiry-form-btn').on('click',function(){
+    $('.enquiry-form-btn').on('click',function(e){
+        e.preventDefault();
         var check = true;
 
         if($(name).val().trim() == ''){
@@ -32,15 +33,21 @@
         }
 
         if(check){
+            var formData = new FormData(this);    
+            
             $('.enquiry-form-btn').hide();
-            var payload = {};
-			$(".enquiry-form.validate-form").serializeArray().forEach(function(val){
-				payload[val.name] = val.value;
-			});
+            var payload = new FormData($(".enquiry-form.validate-form")[0]);
+			// $(".enquiry-form.validate-form").serializeArray().forEach(function(val){
+			// 	payload[val.name] = val.value;
+            // });
+
 			$.ajax({
 				url:"./enquiry",
 				method: "post",
-				data: payload
+                data: payload,
+                cache: false,
+                contentType: false,
+                processData: false
 			}).done(function(){
 				$(".notify-msg").show();
 				setTimeout(function(){
