@@ -20,7 +20,7 @@ var express = require("express"),
     
 var AWS = require('aws-sdk');
 // Set the region 
-AWS.config.update({region: 'us-east-1', accessKeyId: "AKIAIGFQASD7ZXUIIOHQ", secretAccessKey:"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"});
+AWS.config.update({region: 'us-east-1', accessKeyId: config.aws.accessKey, secretAccessKey:config.aws.secretKey});
 
 app.use(body.urlencoded({extended: true}));
 app.use(body.json());
