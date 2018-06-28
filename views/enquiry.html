@@ -23,16 +23,11 @@
 </head>
 <body>
 
-	<div class="enquiry">
-		<div class="container-enquiry">
-			<div class="enquiry-pic js-tilt" data-tilt>
-				<img src="images/img-01.png" alt="IMG">
-			</div>
+	<div class="wrapper csoon enquiry">
+		<div class="container">
 
 			<form class="enquiry-form validate-form">
-				<span class="enquiry-form-title">
-					Make an Enquiry
-				</span>
+				<h1>Make an Enquiry</h1>
 
 				<div class="m-b-16">
 					<div class="wrap-input1 validate-input">
@@ -55,19 +50,18 @@
 						<textarea class="input1" name="message" placeholder="Message" maxlength="140"></textarea>
 						<span class="shadow-input1"></span>
 					</div>
-					<div class="wrap-input1 validate-input">
+					<div class="wrap-input1 validate-input file-upload-wrapper">
 						<input type="file" name="file" data-max-size="1024" accept="image/x-png,image/gif,image/jpeg" />
 					</div>
 				</div>
-				<div class="container-enquiry-form-btn">
-					<button type="button" class="enquiry-form-btn">
-						<span>Submit Enquiry<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-						</span>
+				<div class="btn-container">
+					<button type="button" class="btn enquiry-form-btn">
+						<span>Submit</span>
 					</button>
 				</div>
 			</form>
-		</div>
 		<div class="notify-msg pos-fixed top-0 left-0">Data has been posted </div>
+		</div>
 	</div>
 
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>

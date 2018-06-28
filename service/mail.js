@@ -3,7 +3,7 @@ var mailer = require("nodemailer/lib/mail-composer"),
 
 module.exports = {
     formatEnquiryMail: (payload)=>{
-
+        console.log(payload);
         let emailTemplate = `
             <style>
                 <td>
