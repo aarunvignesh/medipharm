@@ -51,6 +51,10 @@ app.get("/enquiry",(req, res) => {
     res.render("enquiry");
 });
 
+app.get("/admin",(req, res) => {
+    res.render("admin");
+});
+
 app.use(multer().single('file'));
 
 app.post("/enquiry",(req, res) => {
