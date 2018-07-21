@@ -3,7 +3,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
     selector:"core-component",
-    styleUrls:[],
+    styleUrls:["./../css/editor.css"],
     templateUrl: "./../template/core.html"
 })
 export class coreComponent{

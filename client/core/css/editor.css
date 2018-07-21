@@ -1,0 +1,27 @@
+/*sample*/
+.editor-content * {
+	font-family: 'Arial', Helvetica, sans-serif;
+}
+.editor-content p {
+	font-size: 14px;
+	line-height: 1.25em;
+	margin: 0 0 20px;
+}
+.editor-content strong{
+	font-weight: 600;
+}
+
+.editor-content img {
+	max-width: 40%;
+	display: inline-block;
+	margin: 0 30px 30px 0;
+	box-sizing: border-box;
+}
+
+.editor-content ul, .editor-content li {
+	list-style: none;
+}
+
+.editor-content table {
+
+}
