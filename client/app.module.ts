@@ -13,7 +13,7 @@ import { loginComponent } from "./login/component/login.component";
 const appRoutes: Routes = [
     {
         path: '',
-        component: loginComponent
+        component: editorComponent
     }, {
         path: 'editor',
         component: editorComponent,
