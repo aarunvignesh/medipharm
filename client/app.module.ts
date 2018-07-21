@@ -7,6 +7,7 @@ import { coreComponent } from "./core/component/core.component";
 import { headerComponent } from "./header/component/header.component";
 import { editorComponent } from "./editor/component/editor.component";
 import { loginComponent } from "./login/component/login.component";
+import { searchComponent } from "./search/component/search.component";
 
 
 /** Routes */
@@ -18,7 +19,12 @@ const appRoutes: Routes = [
         path: 'editor',
         component: editorComponent,
         canActivate: []
+    }, {
+        path: 'search',
+        component: searchComponent,
+        canActivate: []
     }
+
 ];
  
 @NgModule({
@@ -32,6 +38,7 @@ const appRoutes: Routes = [
         coreComponent,
         headerComponent,
         loginComponent,
+        searchComponent,
         editorComponent
     ],
     bootstrap: [
