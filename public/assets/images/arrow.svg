@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0.0244196053,8.62971398 L10.7278159,8.62971398 L7.48872296,11.8791912 C7.38656725,11.9715246 7.34356655,12.1127672 7.3768988,12.2464952 C7.41023104,12.3802232 7.51446276,12.4846377 7.6479554,12.5180271 C7.78144803,12.5514165 7.92244097,12.5083381 8.01461028,12.4060008 L11.8912835,8.52248118 C12.0362388,8.37689252 12.0362388,8.14124655 11.8912835,7.9956579 L8.01461028,4.11214245 C7.94701149,4.0429915 7.85522797,4.00287001 7.75864755,4.00025303 C7.60386677,3.99455781 7.4617306,4.08544309 7.40171879,4.22848183 C7.34170698,4.37152058 7.37635378,4.53683729 7.48872296,4.64362097 L10.7278159,7.88377398 L0.000827094672,7.88377398 C0.0629833814,3.51907948 3.62052917,0 8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.7936524,16 0.345531829,12.7536442 0.0244196053,8.62971398 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="services" transform="translate(-111.000000, -426.000000)">
+            <g id="Group-2" transform="translate(111.000000, 312.000000)">
+                <g id="Group" transform="translate(0.000000, 112.000000)">
+                    <g id="Group-3">
+                        <g id="Shape" transform="translate(0.000000, 2.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Combined-Shape" fill="#A6B8C5" fill-rule="nonzero" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
