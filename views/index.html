@@ -7,7 +7,14 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-97825606-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
+		gtag('config', 'UA-97825606-2');
+	</script>
 	<link rel="shortcut icon" href="assets/images/ico/favicon.ico">
 
 	<link rel="stylesheet" href="assets/css/simple-grid.css">
@@ -216,25 +223,25 @@
 <div id="contact" class="wrapper contact">
 	<div class="split">
 		<div class="col">
-			<form class="form">
+			<form class="form index-form">
 				<h5>Feedback / Suggestion / Comments</h5>
 				<div class="fieldset">
-					<input type="text" placeholder="Name">
+					<input id="indexName" name="name" type="text" placeholder="Name" >
 				</div>
 				<div class="fieldset">
-					<input type="text" placeholder="Company Name">
+					<input id="indexCompany" name="companyName" type="text" placeholder="Company Name">
 				</div>
 				<div class="fieldset">
-					<input type="text" placeholder="Email">
+					<input id="indexEmail" name="email" type="text" placeholder="Email">
 				</div>
 				<div class="fieldset">
-					<input type="text" placeholder="Contact No">
+					<input id="indexContact" name="contactNumber" type="text" placeholder="Contact No">
 				</div>
 				<div class="fieldset">
-					<textarea placeholder="Message"></textarea>
+					<textarea id="indexMessage" name="message" placeholder="Message" maxlength="140"></textarea>
 				</div>
 				<div class="right" style="margin-top: 16px">
-					<button class="btn"><span>Submit</span></button>
+					<button class="btn index-form-btn"><span>Submit</span></button>
 				</div>
 			</form>
 		</div>
@@ -272,28 +279,28 @@
 	<div class="overlay"></div>
 	<div class="overlay-content">
 		<span class="closebtn" onclick="closeEnquiry()" title="Close Overlay">x</span>
-		<form action="" class="form">
+		<form action="" class="form enquiry-form validate-form modal-form">
 			<h4>Make an Enquiry</h4>
 			<div class="fieldset">
-				<input type="text" placeholder="Name">
+				<input id="modalName" type="text" placeholder="Name" name="name">
 			</div>
 			<div class="fieldset">
-				<input type="text" placeholder="Company Name">
+				<input id="modalCompany" type="text" placeholder="Company Name">
 			</div>
 			<div class="fieldset">
-				<input type="text" placeholder="Email">
+				<input id="modalEmail" type="text" placeholder="Email" name="email" name="companyName">
 			</div>
 			<div class="fieldset">
-				<input type="text" placeholder="Contact No">
+				<input id="modalContact" type="text" placeholder="Contact No"  name="contactNumber">
 			</div>
 			<div class="fieldset">
-				<input type="file" placeholder="Choose a File">
+				<input type="file" name="file" data-max-size="1024" accept="image/x-png,image/gif,image/jpeg"  placeholder="Choose a File">
 			</div>
 			<div class="fieldset">
-				<textarea placeholder="Message"></textarea>
+				<textarea id="modalMessage" name="message" placeholder="Message" maxlength="140"></textarea>
 			</div>
 			<div class="right" style="margin-top: 16px">
-				<button class="btn"><span>Submit</span></button>
+				<button class="btn enquiry-form-btn"><span>Submit</span></button>
 			</div>
 		</form>
 	</div>
@@ -458,6 +465,6 @@
 		document.getElementById("myOverlay1").style.display = "none";
 	}
 </script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
